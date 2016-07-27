@@ -103,6 +103,10 @@ class PacienteController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id) {
-		//
+		Paciente::destroy($id);
+
+		Session::flash('flash_message', 'paciente apagado com sucesso!');
+
+		return redirect()->route('pacientes.index');
 	}
 }

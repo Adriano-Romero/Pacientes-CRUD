@@ -23,6 +23,7 @@
 			<th>Nome Procedimento</th>
 			<th>Preço Procedimento</th>
 			<th>Paciente</th>
+			<td>Opções</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -32,8 +33,9 @@
     <td> {{$exame->data}}</td>
     <td>{{$exame->procedimento->nome}}</td>
      <td>{{$exame->procedimento->preco}}</td>
-     <td></td>
     <td>{{$exame->paciente->nome}}</td>
+    <td><a href="{{ route('exames.show', $exame->id) }}"
+			class="btn btn-info">Visualizar Exame</a></td>
   </tr>
 	@endforeach
 	</tbody>

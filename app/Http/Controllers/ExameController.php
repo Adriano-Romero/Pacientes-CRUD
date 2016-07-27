@@ -59,7 +59,7 @@ class ExameController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		$exame = Exame::with('paciente', 'procedimentos')->findOrFail($id);
+		$exame = Exame::with('paciente', 'procedimento')->findOrFail($id);
 		return view('exame.show', compact('exame'));
 	}
 
@@ -84,7 +84,21 @@ class ExameController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request, $id) {
-		//
+		$exame = Exame::findOrFail($id);
+
+		$this->validate($request, [
+			'data' => 'required',
+			'paciente_id' => 'required',
+			'procedimento_id' => 'required',
+		]);
+
+		$input = $request->all();
+
+		$exame->fill($input)->save();
+
+		Session::flash('flash_message', 'Exame atualizado!');
+
+		return redirect()->back();
 	}
 
 	/**
@@ -94,6 +108,10 @@ class ExameController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id) {
-		//
+		Exame::destroy($id);
+
+		Session::flash('flash_message', 'Exame apagado com sucesso!');
+
+		return redirect()->route('pacientes.index');
 	}
 }

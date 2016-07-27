@@ -3,9 +3,10 @@
 @section('title', "Perfil")
 
 @section('content')
-	<h1> Lista de seus exames</h1>
-	{{Auth::user()->nome}} <br>
+	<h1> Lista de seus exames, {{Auth::user()->nome}} </h1>
 
+<a href="{{ url('/exames/create') }}" class=" lead btn btn-default">Adicione um novo exame</a>
+<br>
 <table id="example" class="table table-striped table-bordered">
 	<thead>
 		<tr>

@@ -40,7 +40,7 @@ class User extends Authenticatable {
 	}
 
 	public function procedimentos() {
-		return $this->hasManyThrough('App\Procedimento', 'App\Exame', 'paciente_id', 'procedimento_id');
+		return $this->hasManyThrough('App\Procedimento', 'App\Exame', 'paciente_id', 'procedimento_id')->orderBy('procedimentos.nome', 'asc');
 	}
 
 }

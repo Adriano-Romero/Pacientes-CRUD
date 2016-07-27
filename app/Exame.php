@@ -14,6 +14,6 @@ class Exame extends Model {
 	}
 
 	public function procedimento() {
-		return $this->belongsTo('App\Procedimento', 'procedimento_id');
+		return $this->belongsTo('App\Procedimento', 'procedimento_id')->orderBy('nome', 'asc');
 	}
 }

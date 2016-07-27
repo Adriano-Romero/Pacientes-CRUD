@@ -55,6 +55,8 @@
                      @if (Auth::guest())
                         <li><a href="{{ url('/pacientes') }}">Pacientes</a></li>
                         <li><a href="{{ url('/exames') }}">Exames</a></li>
+                        <li><a href="{{ url('/relatorio') }}">Relatório</a></li>
+
                     @else
                         <li><a href="{{ url('/perfil') }}">Meu perfil</a></li>
                     @endif

@@ -41,7 +41,7 @@ Voltar aos  exames.</a></p>
 
 <div class="form-group{{ $errors->has('procedimento') ? ' has-error' : '' }}">
     {!! Form::label('procedimento_id', 'Selecione o procedimento') !!}
-    {!! Form::select('procedimento_id', $procedimentos, null, ['id' => 'procedimentos', 'class' => 'form-control', 'required' => 'required', 'multiple' => true]) !!}
+    {!! Form::select('procedimento_id', $procedimentos, null, ['id' => 'procedimentos', 'class' => 'form-control', 'required' => 'required']) !!}
     <small class="text-danger">{{ $errors->first('procedimento') }}</small>
 </div>
 

@@ -26,3 +26,5 @@ Route::get('/perfil', [
 	'middleware' => 'auth',
 	'uses' => 'UserController@showProfile',
 ]);
+
+Route::get('/relatorio', 'UserController@testeRaw');
